@@ -1,0 +1,15 @@
+{
+  "short_name": "NOLA Exchange",
+  "name": "NOLA Exchange - DEX Interface",
+  "icons": [
+    {
+      "src": "logo.gif",
+      "sizes": "84x84",
+      "type": "image/gif"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#0c0014",
+  "background_color": "#0c0014"
+}
