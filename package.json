@@ -1,14 +1,14 @@
 {
   "name": "nola-exchange",
-  "version": "1.0.0",
+  "version": "1. 0.0",
   "description": "NOLA DEX - Full Exchange Interface with Reown AppKit v5",
   "private": true,
   "dependencies": {
-    "@reown/appkit": "^1.4.3",
-    "@reown/appkit-adapter-ethers": "^1.4.3",
+    "@reown/appkit": "^1.8.14",
+    "@reown/appkit-adapter-ethers": "^1.8.14",
     "@supabase/supabase-js": "^2.38.4",
     "axios": "^1.6.0",
-    "ethers": "^5.7.2",
+    "ethers": "^6.10.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1"
