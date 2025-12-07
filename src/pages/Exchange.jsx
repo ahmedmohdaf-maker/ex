@@ -36,8 +36,8 @@ export const Exchange = () => {
 
       if (account?. address && provider) {
         setUserAddress(account.address)
-        const ethersProvider = new ethers.providers.Web3Provider(provider)
-        const ethSigner = ethersProvider.getSigner()
+        const ethersProvider = new ethers.BrowserProvider(provider)
+        const ethSigner = await ethersProvider.getSigner()
         setSigner(ethSigner)
       } else {
         setUserAddress(null)
@@ -73,7 +73,7 @@ export const Exchange = () => {
       if (fromToken && toToken && fromAmount) {
         try {
           setLoading(true)
-          const amountBN = ethers.utils.parseUnits(fromAmount, fromToken.decimals)
+          const amountBN = ethers.parseUnits(fromAmount, fromToken.decimals)
           const quote = await getQuote(
             fromToken.address,
             toToken.address,
@@ -81,7 +81,7 @@ export const Exchange = () => {
             slippage
           )
           if (quote?. toTokenAmount) {
-            const to = Number(ethers.utils.formatUnits(quote.toTokenAmount, toToken.decimals))
+            const to = Number(ethers.formatUnits(quote.toTokenAmount, toToken.decimals))
             setToAmount(to.toFixed(6))
           }
         } catch (err) {
@@ -111,7 +111,7 @@ export const Exchange = () => {
     try {
       setLoading(true)
 
-      const amountBN = ethers.utils.parseUnits(fromAmount, fromToken.decimals)
+      const amountBN = ethers.parseUnits(fromAmount, fromToken.decimals)
       const quote = await getQuote(
         fromToken.address,
         toToken.address,
@@ -128,7 +128,7 @@ export const Exchange = () => {
           quote.to || '0x1111111254fb6c44bac0bed2854e76f90643097d',
           amountBN.toString()
         )
-        showToast('Approved!', { type: 'success' })
+        showToast('Approved! ', { type: 'success' })
       }
 
       showToast('Executing swap...', { type: 'info' })
@@ -136,7 +136,7 @@ export const Exchange = () => {
 
       showToast('Swap successful!', {
         type: 'success',
-        txHash: receipt.transactionHash,
+        txHash: receipt.hash,
       })
       setFromAmount('')
       setToAmount('')
@@ -237,7 +237,7 @@ export const Exchange = () => {
       <div className="footer">
         <div>© 2025 NOLA — All rights reserved</div>
         <div>
-          <a href="https://x.com/NOLA_CHAIN" target="_blank" rel="noopener">
+          <a href="https://x. com/NOLA_CHAIN" target="_blank" rel="noopener">
             X
           </a>{' '}
           •{' '}
