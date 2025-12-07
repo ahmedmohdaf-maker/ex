@@ -15,7 +15,7 @@ export const appKit = createAppKit({
     name: 'NOLA Exchange',
     description: 'Full DEX Swap Interface',
     url: window.location.origin,
-    icons: ['https://via.placeholder.com/84x84? text=NOLA'],
+    icons: ['https://via.placeholder.com/84x84?text=NOLA'],
   },
   projectId,
   features: {
